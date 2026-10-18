@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "OA 虎牙号库登录态直通",
+  "version": "1.3.0",
+  "description": "从 OA 后台读取虎牙账号 Cookie，写入 huya.com 登录态后打开官方宝典页面。",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmqYos2CjQhS2GjtkKYqfwLoSz2UaFAkg+UVkwKTVy8Q3XWCfhX0iX0ek40T2vebslwGGI3FC5kdaXH4P6Nj7unfEEQxOT/iZkAA7ZFdOFDYJPxYPYt3SwObFA+4OCfRNzMJ97GpivLDSV9AhuF7bP2POVv1YSNfv0qR6Wihc93NXEKruFQ3ypMQEv67JSf3z69cfsQ+N1QziPixXbCPm+E7mYRQP9a+Cvgdxl7rV02Nw5yqdHYJTauGTA5U3ipFsKpqk8Jpn5+KzeyK72proMGiaoCbpXHVi6kQLKD7CUlg9Ovsq83uLSHS4q7YAVbUllA5UFMVb/zVJKR392oukoQIDAQAB",
+  "permissions": [
+    "cookies",
+    "tabs",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://*.huya.com/*",
+    "https://ttmofang.com/*",
+    "https://*.ttmofang.com/*",
+    "http://103.236.90.63/*",
+    "https://103.236.90.63/*",
+    "http://localhost/*",
+    "http://127.0.0.1/*"
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_title": "OA 虎牙直通（请从 OA 后台点「官网」按钮使用）",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "externally_connectable": {
+    "matches": [
+      "https://ttmofang.com/*",
+      "https://*.ttmofang.com/*",
+      "http://103.236.90.63/*",
+      "https://103.236.90.63/*",
+      "http://localhost/*",
+      "http://127.0.0.1/*"
+    ]
+  },
+  "options_page": "options.html"
+}
