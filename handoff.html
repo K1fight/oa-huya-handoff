@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>OA 虎牙登录态直通</title>
+  <style>
+    body { font: 14px/1.7 -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+           margin: 0; padding: 44px 32px; color: #1f2328; background: #fff; }
+    h1 { font-size: 18px; margin: 0 0 18px; }
+    #state { padding: 16px 18px; border-radius: 8px; background: #f6f8fa; border: 1px solid #d0d7de; }
+    #state.err { background: #fff5f5; border-color: #ffccc7; color: #a8071a; }
+    #state.ok { background: #f6ffed; border-color: #b7eb8f; color: #237804; }
+    #actions { margin-top: 16px; display: none; gap: 10px; }
+    #actions.show { display: flex; }
+    button { padding: 7px 16px; border-radius: 6px; border: 1px solid #d0d7de; background: #f6f8fa;
+             font: inherit; cursor: pointer; }
+    button.primary { background: #1f6feb; border-color: #1f6feb; color: #fff; }
+    .hint { margin-top: 18px; color: #57606a; font-size: 13px; }
+    code { background: #f6f8fa; padding: 1px 5px; border-radius: 4px; }
+    dl { margin: 16px 0 0; padding: 12px 14px; background: #f6f8fa; border: 1px solid #d0d7de;
+         border-radius: 8px; display: none; }
+    dl.show { display: block; }
+    dt { font-weight: 600; font-size: 12px; color: #57606a; }
+    dd { margin: 0 0 8px; font-size: 12px; word-break: break-all;
+         font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    dd:last-child { margin-bottom: 0; }
+  </style>
+</head>
+<body>
+  <h1>OA 虎牙登录态直通</h1>
+  <div id="state">正在校验一次性凭据…</div>
+
+  <div id="actions">
+    <button class="primary" id="retry">重试</button>
+    <button id="open">直接打开官方页面</button>
+  </div>
+
+  <dl id="info">
+    <dt>账号</dt><dd id="account">—</dd>
+    <dt>目标页面</dt><dd id="panel">—</dd>
+    <dt>OA 地址</dt><dd id="api">—</dd>
+  </dl>
+
+  <div class="hint">
+    本页由 OA 后台打开。凭据一次性、60 秒内有效；<br />
+    成功后会自动写入 <code>.huya.com</code> 登录态并跳转官方页面，本页随即关闭。<br />
+    若长时间无反应，点「重试」；凭据过期请回 OA 重新点「官网」。
+  </div>
+
+  <script src="config.js"></script>
+  <script src="handoff.js"></script>
+</body>
+</html>
